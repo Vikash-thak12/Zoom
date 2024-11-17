@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import MobileNav from './MobileNav'
 
 const Navbar = () => {
   return (
@@ -9,7 +10,8 @@ const Navbar = () => {
         <Image src={"/icons/logo.svg"} height={32} width={32} alt='Main logo' className='size-14 max-sm:size-10' />
         <p className='text-white font-bold'>Zoom</p>
       </Link>
-      
+
+      <MobileNav /> 
     </nav>
   )
 }
