@@ -2,6 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import MobileNav from './MobileNav'
+import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
 
 const Navbar = () => {
   return (
@@ -11,7 +12,18 @@ const Navbar = () => {
         <p className='text-white font-bold'>Zoom</p>
       </Link>
 
-      <MobileNav /> 
+      <div>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
+
+
+        <SignedIn>
+          <UserButton />
+        </SignedIn>
+      </div>
+
+      <MobileNav />
     </nav>
   )
 }
