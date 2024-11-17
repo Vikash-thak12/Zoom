@@ -12,10 +12,10 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 
 
-const   MobileNav = () => {
+const MobileNav = () => {
     const pathname = usePathname();
     return (
-        <section>
+        <section className="max-sm:block hidden">
             <Sheet>
                 <SheetTrigger className="cursor-pointer" asChild>
                     <Image src={"/icons/hamburger.svg"} alt="Hamburger" height={32} width={32} />
