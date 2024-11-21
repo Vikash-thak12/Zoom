@@ -11,7 +11,6 @@ interface HomeCardProps {
   description: string;
   handleClick?: () => void;
 }
-
 const HomeCard = ({ className, img, title, description, handleClick }: HomeCardProps) => {
   return (
     <section
@@ -24,7 +23,6 @@ const HomeCard = ({ className, img, title, description, handleClick }: HomeCardP
       <div className="flex-center glassmorphism size-12 rounded-[10px]">
         <Image src={img} alt="meeting" width={27} height={27} />
       </div>
-      
       <div className="flex flex-col gap-2">
         <h1 className="text-2xl font-bold">{title}</h1>
         <p className="text-lg font-normal">{description}</p>
