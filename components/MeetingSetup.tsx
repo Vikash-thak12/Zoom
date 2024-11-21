@@ -26,9 +26,9 @@ const MeetingSetup = ({ setIsSetupComplete}: {setIsSetupComplete: (value: boolea
     return (
         <div className='flex h-screen w-full flex-col items-center justify-center gap-3'>
             <h1 className='font-bold text-3xl'>Setup Meeting</h1>
-            <div className="w-96 h-48 overflow-hidden flex items-center justify-center text-2xl font-semibold">
-                <VideoPreview />
-            </div>
+                <VideoPreview className='text-3xl flex items-center justify-center font-bold' />
+            {/* <div className="w-full h-full overflow-hidden flex items-center justify-center text-2xl font-semibold">
+            </div> */}
 
             <div className='flex items-center justify-center h-16 gap-3'>
                 <label className='flex items-center justify-center gap-5'>
