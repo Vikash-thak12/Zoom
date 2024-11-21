@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable react-hooks/rules-of-hooks */
+"use client"
 import { tokenProvider } from '@/actions/action.stream';
+import Loader from '@/components/Loader';
 import { useUser } from '@clerk/nextjs';
 import {
     StreamVideo,
@@ -11,7 +13,7 @@ import { ReactNode, useEffect, useState } from 'react';
 const apiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY
 
 
-const streamClientProvider = ({ children }: { children: ReactNode }) => {
+const StreamClientProvider = ({ children }: { children: ReactNode }) => {
     const [videoclient, setVideoclient] = useState<StreamVideoClient>()
 
     const { user, isLoaded } = useUser();
@@ -32,11 +34,14 @@ const streamClientProvider = ({ children }: { children: ReactNode }) => {
         setVideoclient(client)
     }, [user, isLoaded])
 
+    if(!videoclient) return <Loader />
+    
+
     return (
         <StreamVideo client={videoclient}>
-
+            {children}
         </StreamVideo>
     );
 };
 
-export default streamClientProvider
+export default StreamClientProvider

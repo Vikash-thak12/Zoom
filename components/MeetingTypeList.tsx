@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable camelcase */
 'use client';
 
@@ -5,6 +6,8 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import HomeCard from './Homecard';
 import MeetingModal from './MeetingModal';
+import { useUser } from '@clerk/nextjs';
+import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 
 
 const MeetingTypeList = () => {
@@ -13,10 +16,51 @@ const MeetingTypeList = () => {
     'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined
   >(undefined);
 
+  const [values, setValues] = useState({
+    dateTime: new Date(),
+    description: '',
+    link: '',
+  })
+  const [calldetails, setCalldetails] = useState<Call>()
 
-  const createMeeting = () => {
+  const { user } = useUser()
+  const client = useStreamVideoClient();
 
-  }
+  const createMeeting = async () => {
+    if (!user || !client) {
+      console.error("User or Stream client is not available");
+      return;
+    }
+  
+    try {
+      const id = crypto.randomUUID(); // Generate a unique ID for the call
+      const call = client.call("default", id);
+  
+      if (!call) throw new Error("Failed to create a Call object");
+  
+      // Ensure `starts_at` is a valid ISO string
+      const startsAt = values.dateTime.toISOString() || new Date().toISOString();
+      const description = values.description || "Instant Meeting";
+  
+      // Create or fetch the call
+      await call.getOrCreate({
+        data: {
+          starts_at: startsAt,
+          custom: { description },
+        },
+      });
+  
+      setCalldetails(call);
+  
+      // If no description, redirect to the meeting URL
+      if (!values.description) {
+        router.push(`/meeting/${call.id}`);
+      }
+    } catch (error) {
+      console.error("Error on creating meeting:", error);
+    }
+  };
+  
 
 
   return (
@@ -49,17 +93,19 @@ const MeetingTypeList = () => {
         handleClick={() => router.push('/recordings')}
       />
 
+
+      {/* This is the popup model and will be opened when clicked on */}
       <MeetingModal
-      isopen={ meetingState === "isInstantMeeting"}
-      onclose={() => setMeetingState(undefined)}
-      title={"Start an Instand Meeting"}
-      className="text-center"
-      buttonText="Start Meeting"
-      handleclick={createMeeting}
+        isopen={meetingState === "isInstantMeeting"}
+        onclose={() => setMeetingState(undefined)}
+        title={"Start an Instant Meeting"}
+        className="text-center"
+        buttonText="Start Meeting"
+        handleClick={createMeeting}
       />
 
     </section>
   );
 };
 
-export default MeetingTypeList;
+export default MeetingTypeList; 
