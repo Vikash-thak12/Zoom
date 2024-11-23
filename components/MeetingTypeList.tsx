@@ -79,6 +79,8 @@ const MeetingTypeList = () => {
   };
 
 
+  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${calldetails?.id}`
+
 
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -121,19 +123,28 @@ const MeetingTypeList = () => {
           // buttonText="Start Meeting"
           handleClick={createMeeting}
         >
+
           <div className='flex flex-col gap-2.5'>
             <label>Add a Description</label>
             <Textarea 
             onChange={(e) => setValues({...values, description: e.target.value})}
             className='border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0' />
           </div>
+
           <div className='flex flex-col gap-2.5'>
             <label>Pick a date and Time</label>
             <DatePicker 
             selected={values.dateTime}
             onChange={(date) => setValues({...values, dateTime: date!})}
-            className='border-none bg-dark-3 ' />
+            // for showing the time
+            showTimeSelect    
+            timeFormat='HH:mm'
+            timeIntervals={15}
+            timeCaption='Time'
+            dateFormat="MMMM d, yyyy h:mm aa"
+            className='border-none bg-dark-3 px-2 py-1 rounded-md focus:outline-none w-full' />
           </div>
+
         </MeetingModal>
       ) : (
         <MeetingModal
@@ -142,9 +153,12 @@ const MeetingTypeList = () => {
           title={"Meeting Created"}
           className="text-center"
           buttonText="Copy Meeting Link"
-          buttonIcon='/icons/copy.svg'
+          buttonIcon='/icons/copy.svg' 
           image='/icons/checked.svg'
-          handleClick={createMeeting}
+          handleClick={() => {
+            navigator.clipboard.writeText(meetingLink)
+            toast({ title: "Link Copied.."})
+          }}
         />
       )}
 
