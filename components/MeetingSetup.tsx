@@ -12,7 +12,6 @@ const MeetingSetup = ({ setIsSetupComplete}: {setIsSetupComplete: (value: boolea
     if (!call) {
         throw new Error("useCall must be used within Streamcall Component")
     }
-
     useEffect(() => {
         if (ismicCamToggledOn) {   //if mic and camera is enable then turned it off
             call?.camera.disable()
