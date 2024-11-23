@@ -9,10 +9,13 @@ import MeetingModal from './MeetingModal';
 import { useUser } from '@clerk/nextjs';
 import { Call, useStreamVideoClient } from '@stream-io/video-react-sdk';
 import { useToast } from '@/hooks/use-toast';
+import { Textarea } from './ui/textarea';
+import DatePicker from "react-datepicker";
 
 
 const MeetingTypeList = () => {
   const router = useRouter();
+
   const [meetingState, setMeetingState] = useState<
     'isScheduleMeeting' | 'isJoiningMeeting' | 'isInstantMeeting' | undefined
   >(undefined);
@@ -22,6 +25,7 @@ const MeetingTypeList = () => {
     description: '',
     link: '',
   })
+
   const [calldetails, setCalldetails] = useState<Call>()
 
 
@@ -35,21 +39,21 @@ const MeetingTypeList = () => {
       console.error("User or Stream client is not available");
       return;
     }
-  
+
     try {
-      if(!values.dateTime){
+      if (!values.dateTime) {
         toast({ title: "Please Select a date and time" })
         return;
       }
       const id = crypto.randomUUID(); // Generate a unique ID for the call
       const call = client.call("default", id);
-  
+
       if (!call) throw new Error("Failed to create a Call object");
-  
+
       // Ensure `starts_at` is a valid ISO string
       const startsAt = values.dateTime.toISOString() || new Date().toISOString();
       const description = values.description || "Instant Meeting";
-  
+
       // Create or fetch the call
       await call.getOrCreate({
         data: {
@@ -57,9 +61,9 @@ const MeetingTypeList = () => {
           custom: { description },
         },
       });
-  
+
       setCalldetails(call);
-  
+
       // If no description, redirect to the meeting URL
       if (!values.description) {
         router.push(`/meeting/${call.id}`);
@@ -73,7 +77,7 @@ const MeetingTypeList = () => {
       })
     }
   };
-  
+
 
 
   return (
@@ -85,18 +89,18 @@ const MeetingTypeList = () => {
         handleClick={() => setMeetingState('isInstantMeeting')}
       />
       <HomeCard
-        img="/icons/join-meeting.svg"
-        title="Join Meeting"
-        description="via invitation link"
-        className="bg-blue-1"
-        handleClick={() => setMeetingState('isJoiningMeeting')}
-      />
-      <HomeCard
         img="/icons/schedule.svg"
         title="Schedule Meeting"
         description="Plan your meeting"
         className="bg-purple-1"
         handleClick={() => setMeetingState('isScheduleMeeting')}
+      />
+      <HomeCard
+        img="/icons/join-meeting.svg"
+        title="Join Meeting"
+        description="via invitation link"
+        className="bg-blue-1"
+        handleClick={() => setMeetingState('isJoiningMeeting')}
       />
       <HomeCard
         img="/icons/recordings.svg"
@@ -105,6 +109,44 @@ const MeetingTypeList = () => {
         className="bg-yellow-1"
         handleClick={() => router.push('/recordings')}
       />
+
+
+      {/* This popup will be for Scheduling card */}
+      {!calldetails ? (
+        <MeetingModal
+          isopen={meetingState === "isScheduleMeeting"}
+          onclose={() => setMeetingState(undefined)}
+          title={"Create Meeting"}
+          // className="text-center"
+          // buttonText="Start Meeting"
+          handleClick={createMeeting}
+        >
+          <div className='flex flex-col gap-2.5'>
+            <label>Add a Description</label>
+            <Textarea 
+            onChange={(e) => setValues({...values, description: e.target.value})}
+            className='border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0' />
+          </div>
+          <div className='flex flex-col gap-2.5'>
+            <label>Pick a date and Time</label>
+            <DatePicker 
+            selected={values.dateTime}
+            onChange={(date) => setValues({...values, dateTime: date!})}
+            className='border-none bg-dark-3 ' />
+          </div>
+        </MeetingModal>
+      ) : (
+        <MeetingModal
+          isopen={meetingState === "isScheduleMeeting"}
+          onclose={() => setMeetingState(undefined)}
+          title={"Meeting Created"}
+          className="text-center"
+          buttonText="Copy Meeting Link"
+          buttonIcon='/icons/copy.svg'
+          image='/icons/checked.svg'
+          handleClick={createMeeting}
+        />
+      )}
 
 
       {/* This is the popup model and will be opened when clicked on */}

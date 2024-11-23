@@ -4,6 +4,7 @@ import "./globals.css";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "@/components/ui/toaster"
 import '@stream-io/video-react-sdk/dist/css/styles.css';  // this is for streamtheme to work
+import "react-datepicker/dist/react-datepicker.css";      // this is for datepicker css to work properly
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
