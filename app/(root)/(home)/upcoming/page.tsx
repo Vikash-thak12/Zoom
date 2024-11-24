@@ -1,9 +1,11 @@
+import CallList from '@/components/CallList'
 import React from 'react'
 
 const UpcomingPage = () => {
   return (
-    <div>
-      <h1>Upcoming page</h1>
+    <div className='text-white flex size-full flex-col'>
+      <h1 className='font-bold text-3xl'>Upcoming page</h1>
+      <CallList type="upcoming" />
     </div>
   )
 }
