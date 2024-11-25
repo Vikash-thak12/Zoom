@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 import { tokenProvider } from '@/actions/action.stream';
 import Loader from '@/components/Loader';
