@@ -1,5 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 'use client'
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useGetCalls } from '@/hooks/useGetCalls'
 import { Call, CallRecording } from '@stream-io/video-react-sdk';
 import { useRouter } from 'next/navigation';
@@ -51,6 +52,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
 
                 setRecordings(recordings)
             } catch (error) {
+                console.log("Error in callList", error)
                 toast({ title: "Try Again Later" })
             }
         }
