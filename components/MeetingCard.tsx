@@ -36,12 +36,14 @@ const MeetingCard = ({
         <Image src={icon} alt="upcoming" width={28} height={28} />
         <div className="flex justify-between">
           <div className="flex flex-col gap-2">
-            <h1 className="text-2xl font-bold">{title}</h1>
+            <h1 className="text-2xl font-bold line-clamp-1">{title}</h1>
             <p className="text-base font-normal">{date}</p>
           </div>
         </div>
       </article>
       <article className={cn("flex justify-center relative", {})}>
+
+        {/* For showing the avatar images */}
         <div className="relative flex w-full max-sm:hidden">
           {avatarImages.map((img, index) => (
             <Image
@@ -58,6 +60,8 @@ const MeetingCard = ({
             +5
           </div>
         </div>
+
+        {/* this is for start and link button */}
         {!isPreviousMeeting && (
           <div className="flex gap-2">
             <Button onClick={handleClick} className="rounded bg-blue-1 px-6">
