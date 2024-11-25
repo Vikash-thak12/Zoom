@@ -13,7 +13,7 @@ import { ReactNode, useEffect, useState } from 'react';
 const apiKey = process.env.NEXT_PUBLIC_STREAM_API_KEY
 
 
-const StreamClientProvider = ({ children }: { children: ReactNode }) => {
+const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
     const [videoclient, setVideoclient] = useState<StreamVideoClient>()
 
     const { user, isLoaded } = useUser();
@@ -44,4 +44,4 @@ const StreamClientProvider = ({ children }: { children: ReactNode }) => {
     );
 };
 
-export default StreamClientProvider
+export default StreamVideoProvider
