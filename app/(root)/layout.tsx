@@ -1,4 +1,4 @@
-import StreamClientProvider from '@/Providers/StreamClientProvider'
+import StreamClientProvider from '../../Providers/StreamClientProvider'
 import React, { ReactNode } from 'react'
 
 const RootLayout = ({ children }: { children: ReactNode }) => {
