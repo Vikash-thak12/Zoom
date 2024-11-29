@@ -50,7 +50,34 @@ Follow these steps to set up and run the application locally:
 6. **Edit the code**:
 
     Start editing by modifying files inside the `app` directory, such as `app/page.tsx`. Changes will auto-update in the browser.
+   
+7. **Set Up Environment Variables**:
 
+   Create a new file named .env in the root of your project and add the following content:
+
+   ```bash
+    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+    ```
+    ```bash
+    CLERK_SECRET_KEY=
+    ```
+
+    
+    ```bash
+    NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+    ```
+    ```bash
+    NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+    ```
+
+      
+    ```bash
+    NEXT_PUBLIC_STREAM_API_KEY=
+    ```
+     ```bash
+    STREAM_SECRET_KEY=
+    ```
+   
 ---
 
 ## 📚 Learn More
