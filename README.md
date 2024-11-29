@@ -1,10 +1,10 @@
-## Introduction
+## 📜 Introduction
 
 A **Zoom-like application** built using modern web technologies to provide seamless video conferencing and audio communication. This project leverages the power of **Next.js** and **TypeScript** for robust and scalable development, **GetStream** for video and audio services, and **Clerk** for secure user authentication.
 
 ---
 
-## Features
+## ✨ Features
 
 - **Video and Audio Conferencing**: High-quality real-time communication using GetStream.
 - **Authentication**: Secure login and user management with Clerk.
@@ -14,31 +14,45 @@ A **Zoom-like application** built using modern web technologies to provide seaml
 
 ---
 
-## Installation Guide
+## ⚙️ Installation Guide
 
 Follow these steps to set up and run the application locally:
 
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/Vikash-thak12/Zoom.git
+    git clone https://github.com/FarhanAlam-Official/BCA-Study-Nepal.git
     ```
 
 2. **Navigate to the project directory**:
 
     ```bash
-    cd Zoom.git
+    cd BCA-Study-Nepal
     ```
 
 3. **Install dependencies**:
 
     ```bash
     npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    # or
+    bun install
+    ```
 
 4. **Start the development server**:
 
     ```bash
     npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    # or
+    bun dev
+    ```
 
 5. **Access the app**:
 
@@ -50,7 +64,7 @@ Follow these steps to set up and run the application locally:
 
 ---
 
-## Learn More
+## 📚 Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
@@ -60,7 +74,7 @@ To learn more about Next.js, take a look at the following resources:
 
 ---
 
-## Deploy on Vercel
+## 🚀 Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
