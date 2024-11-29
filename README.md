@@ -1,4 +1,5 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Introduction 
+A Zoom-like application built using modern web technologies to provide seamless video conferencing and audio communication. This project leverages the power of Next.js and TypeScript for robust and scalable development, GetStream for video and audio services, and Clerk for secure user authentication.
 
 ## Getting Started
 
