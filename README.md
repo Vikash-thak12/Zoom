@@ -14,39 +14,37 @@ A **Zoom-like application** built using modern web technologies to provide seaml
 
 ---
 
-## Getting Started
+## Installation Guide
 
-Follow these steps to run the application locally:
+Follow these steps to set up and run the application locally:
 
-1. **Install dependencies**:
+1. **Clone the repository**:
+
+    ```bash
+    git clone https://github.com/Vikash-thak12/Zoom.git
+    ```
+
+2. **Navigate to the project directory**:
+
+    ```bash
+    cd Zoom.git
+    ```
+
+3. **Install dependencies**:
 
     ```bash
     npm install
-    # or
-    yarn install
-    # or
-    pnpm install
-    # or
-    bun install
-    ```
 
-2. **Run the development server**:
+4. **Start the development server**:
 
     ```bash
     npm run dev
-    # or
-    yarn dev
-    # or
-    pnpm dev
-    # or
-    bun dev
-    ```
 
-3. **Access the app**:
+5. **Access the app**:
 
     Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-4. **Edit the code**:
+6. **Edit the code**:
 
     Start editing by modifying files inside the `app` directory, such as `app/page.tsx`. Changes will auto-update in the browser.
 
