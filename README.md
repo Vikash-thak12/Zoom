@@ -23,37 +23,24 @@ Follow these steps to set up and run the application locally:
 1. **Clone the repository**:
 
     ```bash
-    git clone https://github.com/FarhanAlam-Official/BCA-Study-Nepal.git
+    git clone https://github.com/Vikash-thak12/Zoom.git
     ```
 
 2. **Navigate to the project directory**:
 
     ```bash
-    cd BCA-Study-Nepal
+    cd Zoom
     ```
 
 3. **Install dependencies**:
 
     ```bash
     npm install
-    # or
-    yarn install
-    # or
-    pnpm install
-    # or
-    bun install
-    ```
 
 4. **Start the development server**:
 
     ```bash
     npm run dev
-    # or
-    yarn dev
-    # or
-    pnpm dev
-    # or
-    bun dev
     ```
 
 5. **Access the app**:
