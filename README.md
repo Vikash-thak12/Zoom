@@ -1,34 +1,66 @@
-## Introduction 
-A Zoom-like application built using modern web technologies to provide seamless video conferencing and audio communication. This project leverages the power of Next.js and TypeScript for robust and scalable development, GetStream for video and audio services, and Clerk for secure user authentication.
+## Introduction
+
+A **Zoom-like application** built using modern web technologies to provide seamless video conferencing and audio communication. This project leverages the power of **Next.js** and **TypeScript** for robust and scalable development, **GetStream** for video and audio services, and **Clerk** for secure user authentication.
+
+---
+
+## Features
+
+- **Video and Audio Conferencing**: High-quality real-time communication using GetStream.
+- **Authentication**: Secure login and user management with Clerk.
+- **Optimized Performance**: Built with Next.js for fast and efficient rendering.
+- **Scalability**: Modular and easily extensible code structure for future growth.
+- **Modern UI**: Responsive and user-friendly interface designed for a smooth experience.
+
+---
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to run the application locally:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Install dependencies**:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    ```bash
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    # or
+    bun install
+    ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. **Run the development server**:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+    ```bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    # or
+    bun dev
+    ```
+
+3. **Access the app**:
+
+    Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
+
+4. **Edit the code**:
+
+    Start editing by modifying files inside the `app` directory, such as `app/page.tsx`. Changes will auto-update in the browser.
+
+---
 
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Next.js Documentation](https://nextjs.org/docs) - Learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - An interactive Next.js tutorial.
+- [Next.js GitHub Repository](https://github.com/vercel/next.js) - Your feedback and contributions are welcome!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
 ## Deploy on Vercel
 
