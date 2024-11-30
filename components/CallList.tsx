@@ -75,7 +75,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                                 ? '/icons/upcoming.svg'
                                 : '/icons/recordings.svg'
                     }
-                    title={(meeting as Call).state?.custom?.description || meeting.filename.substring(0,20) || "Personal Meeting"}
+                    title={(meeting as Call).state?.custom?.description || meeting.filename?.substring(0,20) || "Personal Meeting"}
 
                     // I was getting issue in the date bc it shoud be startsAt instead of startedAt
                     date={(meeting as Call).state?.startsAt?.toLocaleString() || (meeting as CallRecording).start_time?.toLocaleString()}
