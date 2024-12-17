@@ -8,7 +8,7 @@ A **Zoom-like application** built using modern web technologies to provide seaml
 
 ## ✨ Features
 
-- **Video and Audio Conferencing**: High-quality real-time communication using GetStream.
+- **Video and Audio Conferencing**: High-quality real-time Video and Audio communication using GetStream.
 - **Authentication**: Secure login and user management with Clerk.
 - **Optimized Performance**: Built with Next.js for fast and efficient rendering.
 - **Scalability**: Modular and easily extensible code structure for future growth.
