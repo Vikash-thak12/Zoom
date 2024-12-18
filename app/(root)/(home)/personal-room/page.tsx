@@ -44,7 +44,7 @@ const PersonalPage = () => {
   
   return (
     <div className='flex flex-col size-full text-white gap-8'>
-      <h1 className='text-3xl font-bold'>Personal page</h1>
+      <h1 className='text-3xl font-bold'>Personal Room</h1>
       
       <div className='flex flex-col gap-8  bg-dark-1 rounded-xl p-3'>
         <Table title={"Vikash"} desc={`${user?.username?.toUpperCase()}'s meeting room`} />
